@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: org.sdia.radarmicroservice.RadarMicroServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 13.921 s <<< FAILURE! - in org.sdia.radarmicroservice.RadarMicroServiceApplicationTests
+contextLoads  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to execute CommandLineRunner
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8081/api/vehiculesByMatricule/EE-8522": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+Caused by: java.net.ConnectException: Connection refused: connect
+

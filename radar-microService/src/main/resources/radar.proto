@@ -1,0 +1,50 @@
+syntax ="proto3";
+option java_package="org.sdia.radarmicroservice.stub";
+
+service radarGrpcService{
+  rpc getVehiculeByMatricule(VehiculeRequest) returns(VehiculeResponse);
+  rpc getProprietaireById(ProprietaireRequest) returns(ProprietaireResponse);
+  rpc saveInfraction(infractionRequest) returns (infractionResponse);
+}
+
+message VehiculeRequest{
+  string numeroMatricule=1;
+}
+message VehiculeResponse{
+  int64 id=1;
+  string numeroMatricule=2;
+  string marque=3;
+  string puissanceFiscale=4;
+  string modele=5;
+  int64 idProprietaire=6;
+}
+
+message ProprietaireResponse{
+  int64 id=1;
+  string nom = 2;
+  string dateNaissance = 3;
+  string email=4;
+}
+
+message ProprietaireRequest{
+  int64 id=1;
+}
+
+message infractionRequest{
+  string date=1;
+  int64 numeroRadar=2;
+  string matriculeVehicule=3;
+  double vitesseVehicule=4;
+  double vitesseMaximaleRadar=5;
+  double montantInfraction=6;
+}
+
+message infractionResponse{
+  int64 id=1;
+  string date=2;
+  int64 numeroRadar=3;
+  string matriculeVehicule=4;
+  double vitesseVehicule=5;
+  double vitesseMaximaleRadar=6;
+  double montantInfraction=7;
+}
