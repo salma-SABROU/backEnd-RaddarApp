@@ -1,0 +1,45 @@
+type Vehicule {
+    id: Int,
+    numeroMatricule: String,
+    marque: String,
+    puissanceFiscale: String,
+    modele: String
+}
+
+type Proprietaire {
+    id: Int,
+    nom: String,
+    dateNaissance: String,
+    email: String
+}
+
+type Query {
+    vehiculeList: [Vehicule],
+    proprietaireList : [Proprietaire],
+    vehiculeById (id:Int) : Vehicule,
+    proprietaireById (id:Int) : Proprietaire
+}
+
+type Mutation {
+    addVehicule(vehicule : VehiculeDTO): Vehicule
+    addProprietaire(proprietaire : ProprietaireDTO):Proprietaire
+
+    updateProprietaire(bankAccount : ProprietaireDTO, id : Int):Proprietaire
+    deleteProprietaire(id : Int) : String
+
+    updateVehicule(bankAccount : VehiculeDTO, id : Int):Vehicule
+    deleteVehicule(id : Int) : String
+}
+
+input VehiculeDTO{
+    numeroMatricule: String,
+    marque: String,
+    puissanceFiscale: String,
+    modele: String
+}
+
+input ProprietaireDTO{
+    nom: String,
+    dateNaissance: String,
+    email: String
+}

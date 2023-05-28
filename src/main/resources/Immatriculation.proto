@@ -1,0 +1,62 @@
+syntax ="proto3";
+option java_package="org.sdia.immatriculationmicroservice.stub";
+
+service ImmutationGrpcService{
+  rpc savevehicule(VehiculeRequestDTO) returns(VehiculeResponseDTO);
+  rpc vehicules(GetListVehiculeRequestDTO) returns (GetListVehiculeResponseDTO);
+  rpc saveProprietaire(ProprietaireRequestDTO) returns(ProprietaireResponseDTO);
+  rpc proprietaire(GetListProprietaireRequestDTO) returns (GetListProprietaireResponseDTO);
+}
+
+message Vehicule{
+  int64 id=1;
+  string numeroMatricule=2;
+  string marque=3;
+  string puissanceFiscale=4;
+  string modele=5;
+  int64 idProprietaire=6;
+}
+message Proprietaire{
+  int64 id=1;
+  string nom = 2;
+  string dateNaissance = 3;
+  string email=4;
+}
+
+message GetListVehiculeRequestDTO{}
+
+message GetListVehiculeResponseDTO{
+  repeated Vehicule vehicule=1;
+}
+message VehiculeRequestDTO{
+  string numeroMatricule=1;
+  string marque=2;
+  string puissanceFiscale=3;
+  string modele=4;
+  int64 idProprietaire=5;
+}
+message VehiculeResponseDTO{
+  int64 id=1;
+  string numeroMatricule=2;
+  string marque=3;
+  string puissanceFiscale=4;
+  string modele=5;
+  int64 idProprietaire=6;
+}
+
+message GetListProprietaireRequestDTO{}
+
+message GetListProprietaireResponseDTO{
+  repeated Proprietaire proprietaire=1;
+}
+message ProprietaireRequestDTO{
+  string nom = 2;
+  string dateNaissance = 3;
+  string email=4;
+}
+message ProprietaireResponseDTO{
+  int64 id=1;
+  string nom = 2;
+  string dateNaissance = 3;
+  string email=4;
+}
